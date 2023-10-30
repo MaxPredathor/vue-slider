@@ -40,5 +40,11 @@ createApp({
         this.objectIndex = 0;
       }
     },
+    previousSlide() {
+      this.objectIndex--;
+      if (this.objectIndex < 0) {
+        this.objectIndex = this.slides.length - 1;
+      }
+    },
   },
 }).mount("#app");
