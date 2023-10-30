@@ -31,6 +31,7 @@ createApp({
         },
       ],
       objectIndex: 0,
+      active: false,
     };
   },
   methods: {
@@ -46,5 +47,11 @@ createApp({
         this.objectIndex = this.slides.length - 1;
       }
     },
+    activeSlide(i) {
+      return i === this.objectIndex ? "active" : "";
+    },
+  },
+  mounted() {
+    newSlide = setInterval(() => this.nextSlide(), 2000);
   },
 }).mount("#app");

@@ -16,7 +16,7 @@
             <div class="slider-wrapper" tabindex="0">
 
                 <div class="item">
-                    <img :src="slides[objectIndex].image" alt="Spiderman" />
+                    <img :src="slides[objectIndex].image" :alt="slides[objectIndex].title" />
                     <div class="text">
                         <h3>
                             {{slides[objectIndex].title}}
@@ -30,8 +30,8 @@
                 <div class="thumbs">
                     <div class="prev" @click="previousSlide()"></div>
                     <div class="next" @click="nextSlide()"></div>
-                    <div class="thumb" v-for="slide, in slides">
-                        <img :src="slide.image" :alt="slides.title" />
+                    <div class="thumb" v-for="(slide, index) in slides" :class="activeSlide(index)">
+                        <img @click="objectIndex = index" :src="slide.image" :alt="slides.title" />
                     </div>
                     <!-- <div class="thumb">
                         <img src="img/02.webp" alt="Ratchet & Clank" />
